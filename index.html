@@ -23,6 +23,30 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
+  <script>
+    function updateInteractive() {
+      var task = document.getElementById("interative-menu").value;
+
+      console.log("interactive", task)
+
+      var video = document.getElementById("interactive-video");
+      video.src = "media/videos/" + 
+                  task + 
+                  ".mp4"
+      video.play();
+
+      var html = document.getElementById("interactive-html-1");
+      html.src = "media/interactive/" + 
+                  task + 
+                  ".html"
+
+      // hide the second iframe container
+      var iframeContainer2 = document.getElementById("second-iframe-container");
+      iframeContainer2.style.display = "none";
+      
+    }
+  </script>
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -52,7 +76,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <img src=".\LostFoundLogo.png" alt="Logo">
+          <img src="media/images/LostFoundLogo.png" alt="Logo">
           <h1 class="title is-1 publication-title">Updating Dynamic 3D Scene Graphs from Egocentric Observations</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -141,10 +165,83 @@
         </div>
       </div>
     </div>
-    <center><img width="1080" height="508" src=".\Pipeline.png" alt="Pipeline"></center>
     <!--/ Abstract. -->
 
 
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span class="dperact">Lost & Found</span></h2>
+
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <img src="media/images/Pipeline.png" class="interpolation-image" />
+        </br>
+        </br>
+          <p class="content has-text-justified">
+            TODO
+          </p>
+          
+        </br>
+        </br>
+
+        <!--/ Re-rendering. -->
+
+        <h2 class="title is-3">Interactive Trajectory Visualization</h2>
+
+
+
+        <div class="columns">
+          <div class="column has-text-centered">
+
+            Visualize Different Scenes for interaction with
+            <div class="select is-small is-rounded">     
+              <select id="interative-menu" onchange="updateInteractive()">
+              <option value="ball" selected="selected">"Ball."</option>
+              <option value="ball">"Carton"</option>
+              <option value="ball">"Shoe."</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <div class="column is-half has-text-centered">
+            <p style="text-align:center;">
+              <video id="interactive-video" width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/videos/ball.mp4" type="video/mp4">
+              </video>
+            </p>
+          </div>
+          <div class="column has-text-centered">
+            <iframe id="interactive-html-1" src="media/interactive/ball.html" width="100%" height="300" frameborder="0"></iframe>
+            <p style="text-align:center;">
+              Interactive Value Map 1
+            </p>
+          </div>
+          <div class="column has-text-centered" id="second-iframe-container">
+            <iframe id="interactive-html-2" src="media/interactive/ball.html" width="100%" height="300" frameborder="0"></iframe>
+            <p style="text-align:center;">
+              Interactive Value Map 2
+            </p>
+          </div>
+        </div>
+        
+        
+        
+    </div>
   </div>
 </section>
 
