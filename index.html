@@ -185,7 +185,7 @@
         </br>
         </br>
           <p class="content has-text-justified">
-            TODO
+            <b>Method Overview:</b> We build a static scene graph that captures object-level relationships, given our initial 3D scan with its semantic instance segmentation. Each Aria glasses recording provides hand positions and device poses. With Lost & Found, we identify object interactions by locating them in our 3D prior and simultaneously querying a 2D hand-object tracker. At the beginning of such an interaction, we project 3D points of our object instance onto the image plane. A point tracking method keeps track of these 2D feature points in subsequent observations. While the 3D hand location yields an anchor for the object translation, we can apply a robust perspective-n-point algorithm to the known 2D-3D correspondences for each RGB image, to identify the correct 6DoF pose of the object. The scene graph is updated accordingly to reflect the correct state of the current environment. In the example above, the picture frame (red) is carried from the rack on the right to the top of the tall shelf on the left.
           </p>
           
         </br>
@@ -195,34 +195,34 @@
 
         <h2 class="title is-3">Interactive Trajectory Visualization</h2>
 
-
-
-        <div class="columns">
-          <div class="column has-text-centered">
-
+        <div class="columns is-multiline">
+          <div class="column is-12 has-text-centered">
             Visualize different 6DoF trajectories for interaction with a
             <div class="select is-small is-rounded">     
               <select id="interative-menu" onchange="updateInteractive()">
-              <option value="ball" selected="selected">Ball</option>
-              <option value="ball">Carton</option>
-              <option value="ball">Shoe</option>
+                <option value="ball" selected="selected">Ball</option>
+                <option value="carton">Carton</option>
+                <option value="shoe">Shoe</option>
               </select>
-            </div>
-            .
+            </div>.
           </div>
-
         </div>
-
-        <div class="columns">
+        
+        <div class="columns is-vcentered">
+          <!-- Video Column -->
           <div class="column is-half has-text-centered">
-            <p style="text-align:center;">
-              <video id="interactive-video" width="60%" height="60%" controls autoplay loop muted>
+            <div style="position: relative; padding-top: 56.25%; height: 0; overflow: hidden;">
+              <video id="interactive-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay loop muted>
                 <source src="media/videos/ball.mp4" type="video/mp4">
               </video>
-            </p>
+            </div>
           </div>
-          <div class="column has-text-centered">
-            <iframe id="interactive-html-1" src="media/interactive/ball.html" width="100%" height="100%" frameborder="0"></iframe>
+        
+          <!-- Iframe Column -->
+          <div class="column is-half has-text-centered">
+            <div style="position: relative; padding-top: 56.25%; height: 0; overflow: hidden;">
+              <iframe id="interactive-html-1" src="media/interactive/ball.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0"></iframe>
+            </div>
           </div>
         </div>
         
